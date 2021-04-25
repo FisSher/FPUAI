@@ -1,0 +1,16 @@
+﻿Ejercicio 1. Clases: Objetos/ Propiedades y métodos/Constructores/Operaciones
+Este ejercicio pretende que el alumno se inicie en el desarrollo orientado a objetos creando algunas clases 
+básicas con un mínimo de funcionalidad.
+
+
+Cree una clase llamada Cuenta que tendrá los siguientes atributos: titular y cantidad (puede tener decimales).
+El titular será obligatorio y la cantidad es opcional. Además, cree dos constructores que cumpla lo anterior.
+La clase tendrá dos métodos especiales:
+
+-Ingresar(double cantidad): se ingresa una cantidad a la cuenta, si la cantidad introducida es negativa, no se 
+hará nada.
+- Retirar(double cantidad): se retira una cantidad a la cuenta, si restando la cantidad actual a la que nos pasan 
+es negativa, la cantidad de la cuenta pasa a ser 0.
+
+1) Crear un formulario que permita instanciar un objeto con consutructor simple, otro parametrizado y tambien 
+sobrecargado.
