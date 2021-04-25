@@ -178,10 +178,6 @@ namespace U2_1
         private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Label label2;
-
-    
-        private System.Windows.Forms.Label labe6;
-        private System.Windows.Forms.Label labe5;
         private System.Windows.Forms.Label labelCuenta;
         private System.Windows.Forms.Label labelCantidad;
         private System.Windows.Forms.Button buttonIngresar;
