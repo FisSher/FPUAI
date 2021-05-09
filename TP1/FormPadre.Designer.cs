@@ -1,7 +1,7 @@
 ﻿
 namespace TP1
 {
-    partial class Form1
+    partial class FormPadre
     {
         /// <summary>
         /// Variable del diseñador necesaria.

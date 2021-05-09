@@ -1,16 +1,12 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace U2_2
 {
-    class Persona
+    internal class Persona
     {
         public string Nombre { get; set; }
         public int Edad { get; set; }
-        int DNI { get; set; }
+        private int DNI { get; set; }
         public char Sexo { get; set; }
         public double Peso { get; set; }
         public double Altura { get; set; }
@@ -23,9 +19,9 @@ namespace U2_2
             DNI = GeneraDNI();
             Peso = 0;
             Altura = 0;
-
         }
-        public Persona( string nombre, int edad, char sexo)
+
+        public Persona(string nombre, int edad, char sexo)
         {
             Nombre = nombre;
             Edad = edad;
@@ -33,9 +29,10 @@ namespace U2_2
             DNI = GeneraDNI();
             Peso = 0;
             Altura = 0;
-
         }
-        public Persona( string nombre, int edad, char sexo, double peso, double altura) {
+
+        public Persona(string nombre, int edad, char sexo, double peso, double altura)
+        {
             Nombre = nombre;
             Edad = edad;
             Sexo = sexo;
@@ -44,10 +41,10 @@ namespace U2_2
             Altura = altura;
         }
 
-        public int CalcularIMC(double peso, double altura) 
+        public int CalcularIMC(double peso, double altura)
         {
             int respuesta = -2;
-            double calculo = peso / (altura*altura);
+            double calculo = peso / (altura * altura);
             if (calculo < 20)
                 respuesta = -1;
             else if ((calculo <= 20) && (calculo <= 25))
@@ -58,21 +55,24 @@ namespace U2_2
             return respuesta;
         }
 
-        public bool EsMayorDeEdad(int edad) {
+        public bool EsMayorDeEdad(int edad)
+        {
             bool respuesta = false;
             if (edad >= 18)
                 respuesta = true;
             return respuesta;
         }
 
-        public bool ComprobarSexo(char sexo) {
+        public bool ComprobarSexo(char sexo)
+        {
             bool respuesta = false;
             if ((sexo == 'M') || (sexo == 'H'))
                 respuesta = true;
             return respuesta;
         }
 
-        public Persona ValorObjeto() {
+        public Persona ValorObjeto()
+        {
             Persona persona = new Persona();
             persona.DNI = persona.DNI;
             persona.Altura = Altura;
@@ -83,15 +83,10 @@ namespace U2_2
             return persona;
         }
 
-        int GeneraDNI() {
+        private int GeneraDNI()
+        {
             var rand = new Random();
             return rand.Next(10000000, 99999999);
         }
-
-
-        }
-
-
-    
-
+    }
 }

@@ -1,35 +1,29 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace Sistema
+﻿namespace Sistema
 {
     public abstract class Usuario
     {
-        public int Id { get; set; }
-        public int NivelPermisos { get; set; }
+        #region Propiedades
+
         public string Nombre { get; set; }
         public string Apellido { get; set; }
 
-        public readonly string NombreUsuario;
+        public string NombreUsuario;
+
+        private string _password;
+
         public string Password
         {
-            set { Password = value; }
-
+            set
+            {
+                _password = value;
+            }
         }
 
+        #endregion Propiedades
 
-
-
-
-
-
-
+        public virtual string CrearUsuario(string nombre, string apellido)
+        {
+            return nombre + "." + apellido;
+        }
     }
-
-
-
-
 }
