@@ -1,0 +1,8 @@
+Ejercicio 2  
+Este ejercicio pretende que el alumno comprenda en la práctica cómo se utilizan las interfaces y la relación entreclases.
+En  un negocio se desea saber  los  productos que contiene en su  depósito,
+los mismo  poseen  un Código Único, descripción, marca y cantidad.
+Del depósito se retiran e ingresan productos varias veces al día.
+Se solicita:
+Saber la cantidad de productos ordenados por Nombre y por marca (Usar Interface comparable)
+Al ingresar producto (realizar una clonación del mismo existente en stock).
