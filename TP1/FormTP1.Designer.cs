@@ -242,6 +242,7 @@ namespace TP1
             this.Controls.Add(this.ButtonCargaDoc);
             this.Name = "FormTP1";
             this.Text = "Form2";
+            this.Load += new System.EventHandler(this.FormTP1_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

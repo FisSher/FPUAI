@@ -107,5 +107,10 @@ namespace TP1
         }
 
         #endregion eliminar
+
+        private void FormTP1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
