@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace U4_2
 {
-    public class Producto:IComparable
+    public class Producto : IComparable<Producto>
     {
         private int _codigoUnico;
 
@@ -49,6 +49,8 @@ namespace U4_2
             set { _cantidad = value; }
         }
 
+
+
         public int CompareTo(object obj)
         {
             if (obj == null)
@@ -61,7 +63,25 @@ namespace U4_2
                 return Nombre.CompareTo(p.Nombre);
             }
         }
-        
+        public int CompareTo(Producto obj)
+        {
+            if (obj == null)
+            {
+                return 1;
+            }
+            else
+            {
+                Producto p = (Producto)obj;
+                return Nombre.CompareTo(p.Marca);
+            }
+        }
+
+        /// <summary>
+        /// Otra posibilidad para comparar por nombre o marca ¿Uso esto?
+        /// </summary>
+        public static Comparison<Producto> OrdenaMarca = (a, b) => a.Marca.CompareTo(b.Marca);
+        public static Comparison<Producto> OrdenaNombre = (a, b) => a.Nombre.CompareTo(b.Marca);
+
 
     }
 }
