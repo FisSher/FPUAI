@@ -62,7 +62,22 @@ namespace U4_2
             }
         }
 
- 
+        //Así como está no puedo usarlo
+        //public int CompareTo(object obj)
+        //{
+        //    if (obj == null)
+        //    {
+        //        return 1;
+        //    }
+
+        //    else
+        //    {
+        //        Producto p = (Producto)obj;
+        //        return Marca.CompareTo(p.Marca);
+
+        //    }
+        //}
+
         public override string ToString()
         {
             return CodigoUnico.ToString() + " - " + Nombre + " - " + Marca + " - " + Cantidad + " - " + Descripcion;
