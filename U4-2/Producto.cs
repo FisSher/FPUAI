@@ -1,13 +1,10 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace U4_2
 {
-    public class Producto : IComparable<Producto>
+    public class Producto : IComparable
     {
+        #region Props
         private int _codigoUnico;
 
         public int CodigoUnico
@@ -23,7 +20,6 @@ namespace U4_2
             get { return _nombre; }
             set { _nombre = value; }
         }
-
 
         private string _descripcion;
 
@@ -48,7 +44,7 @@ namespace U4_2
             get { return _cantidad; }
             set { _cantidad = value; }
         }
-
+        #endregion
 
 
         public int CompareTo(object obj)
@@ -57,31 +53,25 @@ namespace U4_2
             {
                 return 1;
             }
+        
             else
             {
                 Producto p = (Producto)obj;
                 return Nombre.CompareTo(p.Nombre);
+
             }
         }
-        public int CompareTo(Producto obj)
+
+ 
+        public override string ToString()
         {
-            if (obj == null)
-            {
-                return 1;
-            }
-            else
-            {
-                Producto p = (Producto)obj;
-                return Nombre.CompareTo(p.Marca);
-            }
+            return CodigoUnico.ToString() + " - " + Nombre + " - " + Marca + " - " + Cantidad + " - " + Descripcion;
         }
 
         /// <summary>
         /// Otra posibilidad para comparar por nombre o marca ¿Uso esto?
         /// </summary>
-        public static Comparison<Producto> OrdenaMarca = (a, b) => a.Marca.CompareTo(b.Marca);
-        public static Comparison<Producto> OrdenaNombre = (a, b) => a.Nombre.CompareTo(b.Marca);
-
-
+        //public static Comparison<Producto> OrdenaMarca = (a, b) => a.Marca.CompareTo(b.Marca);
+        //public static Comparison<Producto> OrdenaNombre = (a, b) => a.Nombre.CompareTo(b.Marca);
     }
 }
