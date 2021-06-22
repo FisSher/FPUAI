@@ -69,6 +69,7 @@ namespace TPn2
             this.label15 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.buttonEliminarCurso = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).BeginInit();
@@ -436,11 +437,21 @@ namespace TPn2
             this.radioButton2.UseVisualStyleBackColor = true;
             this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
             // 
+            // buttonEliminarCurso
+            // 
+            this.buttonEliminarCurso.Location = new System.Drawing.Point(599, 349);
+            this.buttonEliminarCurso.Name = "buttonEliminarCurso";
+            this.buttonEliminarCurso.Size = new System.Drawing.Size(111, 42);
+            this.buttonEliminarCurso.TabIndex = 49;
+            this.buttonEliminarCurso.Text = "Eliminar curso";
+            this.buttonEliminarCurso.UseVisualStyleBackColor = true;
+            // 
             // FormTP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1295, 548);
+            this.Controls.Add(this.buttonEliminarCurso);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label15);
@@ -536,5 +547,6 @@ namespace TPn2
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
+        private System.Windows.Forms.Button buttonEliminarCurso;
     }
 }

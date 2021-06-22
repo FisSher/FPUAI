@@ -3,7 +3,7 @@ Se quiere hacer un listado de alumnos, uno de docentes y uno de cursos.
 Los alumnos tendrán un nombre, apellido, su promedio y un código único generado por su nombre y apellido + numero al azar.
 Los docentes tendrán lo mismo excepto que en vez de promedio será una nota de desempeño.
 
-Se pide un curso de máximo 9 alumnos y 1 docente. Sólo 1 curso por docente y 1 docente por curso.
+Sólo 1 curso por docente y 1 docente por curso. Se solicita no tener código de curso repetido.
 
 Se solicita que se se informen para alumnos y docentes por separado, los de mejor promedio.
 

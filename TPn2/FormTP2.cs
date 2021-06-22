@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPn2.Clases;
+using TPn2.Excepcion;
 using TPn2.Interfaces;
 namespace TPn2
 {
@@ -53,7 +54,6 @@ namespace TPn2
                 listBoxCursos.DataSource = LCursos;
         }
 
-        
         private void RefrescarListaAlumnos()
         {
             dataGridViewAlumnos.ClearSelection();
@@ -103,6 +103,7 @@ namespace TPn2
 
         #region Carga de
 
+
         private void buttonCargaPersona_Click(object sender, EventArgs e)
         {
             if (string.IsNullOrEmpty(textBoxNombre.Text) && string.IsNullOrEmpty(textBoxApellido.Text))
@@ -150,8 +151,10 @@ namespace TPn2
             }
         }
 
+        //Botón que carga los cursos, tiene la excepción custom adentro.
         private void buttonCargaCurso_Click(object sender, EventArgs e)
         {
+            bool found = false;
             if (string.IsNullOrEmpty(textBoxCargaCurso.Text))
             {
                 MessageBox.Show("Debe completar el curso");
@@ -161,8 +164,23 @@ namespace TPn2
                 try
                 {
                     Curso curso = new Curso(textBoxCargaCurso.Text);
-                    LCursos.Add(curso);
-                    RefrescarListaCursos();
+                    foreach (Curso c in LCursos)
+                    {
+                        if (c.CodigoCurso == curso.CodigoCurso)
+                        {
+                            found = true;
+                            throw new CursoExistenteException();
+                        }
+                    }
+                    if (!found)
+                    {
+                        LCursos.Add(curso);
+                        RefrescarListaCursos();
+                    }
+                }
+                catch (CursoExistenteException ex)
+                {
+                    MessageBox.Show(ex.Message);
                 }
                 catch (Exception ex)
                 {
@@ -177,8 +195,6 @@ namespace TPn2
         /// <summary>
         /// Botón para asignar alumno o docente a curso
         /// </summary>
-        /// <param name="sender"></param>
-        /// <param name="e"></param>
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
         }
