@@ -206,7 +206,7 @@ namespace TPn2
             // listBoxCursos
             // 
             this.listBoxCursos.FormattingEnabled = true;
-            this.listBoxCursos.Location = new System.Drawing.Point(596, 151);
+            this.listBoxCursos.Location = new System.Drawing.Point(599, 170);
             this.listBoxCursos.Name = "listBoxCursos";
             this.listBoxCursos.Size = new System.Drawing.Size(111, 173);
             this.listBoxCursos.TabIndex = 17;
