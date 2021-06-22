@@ -46,12 +46,14 @@ namespace TPn2
 
         private void RefrescarListaCursos()
         {
+            dataGridViewAlumnos.ClearSelection();
             listBoxCursos.DataSource = null;
+            dataGridViewAlumnos.Refresh();
             if (LCursos != null)
                 listBoxCursos.DataSource = LCursos;
         }
 
-        //TODO ver por qué comino falla esto
+        
         private void RefrescarListaAlumnos()
         {
             dataGridViewAlumnos.ClearSelection();
@@ -63,7 +65,9 @@ namespace TPn2
 
         private void RefrescarListaDocentes()
         {
+            dataGridViewAlumnos.ClearSelection();
             dataGridViewDocentes.DataSource = null;
+            dataGridViewAlumnos.Refresh();
             if (LDocentes != null)
                 dataGridViewDocentes.DataSource = LDocentes;
         }
@@ -307,6 +311,7 @@ namespace TPn2
                         {
                             LAlumnos.Remove(alumno);
                             found = true;
+                            RefrescarListaAlumnos();
                             break;
                         }
                     }
@@ -316,6 +321,7 @@ namespace TPn2
                         {
                             LDocentes.Remove(item);
                             found = true;
+                            RefrescarListaDocentes();
                             break;
                         }
                     }
