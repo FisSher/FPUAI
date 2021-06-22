@@ -18,7 +18,17 @@ namespace OtroNamespace
         public string CodigoUnico
         {
             get { return _codigoUnico; }
-            set { _codigoUnico = CrearCodUnico(Nombre,Apellido); }
+            set {
+                if (string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido))
+                {
+                    _codigoUnico = value;
+                }
+                else
+                {
+                    _codigoUnico = CrearCodUnico(Nombre, Apellido);
+                }
+                
+            }
         }
 
 
@@ -29,7 +39,7 @@ namespace OtroNamespace
         public virtual string CrearCodUnico(string nombre, string apellido)
         {
             Random rndm = new Random();
-            return nombre.Substring(0, 1) + apellido.Substring(0, 1) + rndm.Next(0,1000000).ToString();
+            return nombre.ToLower().Substring(0, 1) + apellido.ToLower().Substring(0, 1) + rndm.Next(0,100).ToString();
         }
     }
 }

@@ -38,27 +38,34 @@ namespace TPn2
 
         #endregion Carga inicial
 
-
         /// <summary>
         /// Acá están todos los métodos para recargar listas
         /// </summary>
+
         #region Metodos refresh de listas
 
         private void RefrescarListaCursos()
         {
             listBoxCursos.DataSource = null;
-            listBoxCursos.DataSource = LCursos;
+            if (LCursos != null)
+                listBoxCursos.DataSource = LCursos;
         }
 
+        //TODO ver por qué comino falla esto
         private void RefrescarListaAlumnos()
         {
+            dataGridViewAlumnos.ClearSelection();
             dataGridViewAlumnos.DataSource = null;
-            dataGridViewAlumnos.DataSource = LAlumnos;
+            dataGridViewAlumnos.Refresh();
+            if (LAlumnos != null)
+                dataGridViewAlumnos.DataSource = LAlumnos;
         }
+
         private void RefrescarListaDocentes()
         {
             dataGridViewDocentes.DataSource = null;
-            dataGridViewDocentes.DataSource = LDocentes;
+            if (LDocentes != null)
+                dataGridViewDocentes.DataSource = LDocentes;
         }
 
         #endregion Metodos refresh de listas
@@ -86,10 +93,10 @@ namespace TPn2
         {
         }
 
-
         /// <summary>
         /// Acá están todos los botones donde se cargan objetos a listas
         /// </summary>
+
         #region Carga de
 
         private void buttonCargaPersona_Click(object sender, EventArgs e)
@@ -111,7 +118,7 @@ namespace TPn2
                         );
                         LAlumnos.Add(alumno);
                         RefrescarListaAlumnos();
-                           dataGridViewAlumnos.CurrentCell = null;
+                        dataGridViewAlumnos.CurrentCell = null;
                     }
                     catch (Exception ex)
                     {
@@ -162,7 +169,6 @@ namespace TPn2
 
         #endregion Carga de
 
-        
         //TODO asignar
         /// <summary>
         /// Botón para asignar alumno o docente a curso
@@ -171,7 +177,6 @@ namespace TPn2
         /// <param name="e"></param>
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
-            
         }
 
         private void dataGridViewAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -182,6 +187,148 @@ namespace TPn2
         private void dataGridViewDocentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridViewAlumnos.CurrentCell = null;
+        }
+
+        //El botón modifica promedio, desempeño
+        private void buttonModificar_Click(object sender, EventArgs e)
+        {
+            bool found = false;
+            if (string.IsNullOrEmpty(textBoxCodModificar.Text))
+            {
+                MessageBox.Show("Completar el código a modificar");
+            }
+            else
+            {
+                if (comboBoxTipo.SelectedIndex == 0)
+                {
+                    if (string.IsNullOrEmpty(textBoxPromedio.Text))
+                    {
+                        MessageBox.Show("Debe completar promedio");
+                    }
+                    else
+                    {
+                        try
+                        {
+                            Alumno alumno = new Alumno();
+                            alumno.CodigoUnico = textBoxCodModificar.Text;
+                            alumno.Promedio = Convert.ToDouble(textBoxPromedio.Text);
+
+                            foreach (Alumno a in LAlumnos)
+                            {
+                                if (a.CodigoUnico == alumno.CodigoUnico)
+                                {
+                                    found = true;
+                                    a.Promedio = alumno.Promedio;
+                                    break;
+                                }
+                            }
+                            if (found)
+                            {
+                                RefrescarListaAlumnos();
+                                MessageBox.Show("Modificado");
+                            }
+                            else
+                            {
+                                MessageBox.Show("No se encontró el alumno buscado");
+                            }
+                        }
+                        catch (Exception ex)
+                        {
+                            MessageBox.Show(ex.Message);
+                        }
+                    }
+                }
+                else
+                {
+                    try
+                    {
+                        Docente docente = new Docente();
+                        docente.CodigoUnico = textBoxCodModificar.Text;
+                        docente.Desempenio = Convert.ToDouble(textBoxDesemp.Text);
+
+                        foreach (Docente a in LDocentes)
+                        {
+                            if (a.CodigoUnico == docente.CodigoUnico)
+                            {
+                                found = true;
+                                a.Desempenio = docente.Desempenio;
+                                break;
+                            }
+                        }
+                        if (found)
+                        {
+                            RefrescarListaDocentes();
+                            MessageBox.Show("Modificado.");
+                        }
+                        else
+                        {
+                            MessageBox.Show("No se encontró el docente buscado");
+                        }
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show(ex.Message);
+                    }
+                }
+            }
+        }
+
+        #region radiobuttons
+
+        private void radioButton1_CheckedChanged(object sender, EventArgs e)
+        {
+            buttonCargaPersona.Visible = true;
+            buttonModificar.Visible = false;
+        }
+
+        private void radioButton2_CheckedChanged(object sender, EventArgs e)
+        {
+            buttonCargaPersona.Visible = false;
+            buttonModificar.Visible = true;
+        }
+
+        #endregion radiobuttons
+
+        private void buttonEliminar_Click(object sender, EventArgs e)
+        {
+            bool found = false;
+            string codigoBuscado = textBoxCodModificar.Text;
+            if (string.IsNullOrEmpty(textBoxCodModificar.Text))
+            {
+                MessageBox.Show("Completar el código en el campo");
+            }
+            else
+            {
+                try
+                {
+                    foreach (Alumno alumno in LAlumnos)
+                    {
+                        if (alumno.CodigoUnico == codigoBuscado)
+                        {
+                            LAlumnos.Remove(alumno);
+                            found = true;
+                            break;
+                        }
+                    }
+                    foreach (Docente item in LDocentes)
+                    {
+                        if (item.CodigoUnico == codigoBuscado)
+                        {
+                            LDocentes.Remove(item);
+                            found = true;
+                            break;
+                        }
+                    }
+                    if (found)
+                        MessageBox.Show("Eliminado correctamente");
+                    else
+                        MessageBox.Show("No se ha encontrado el código solicitado.");
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
         }
     }
 }

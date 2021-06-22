@@ -18,12 +18,14 @@ namespace TPn2
             return CodigoUnico + " " + Nombre + " " + Apellido + " " + Desempenio;
         }
 
+        public Docente() { }
+
         public Docente(string nombre, string apellido, double desempenio)
         {
             Nombre = nombre;
             Apellido = apellido;
             Desempenio = desempenio;
-            CodigoUnico = CrearCodUnico(nombre, apellido);
+            CodigoUnico = CrearCodUnico(nombre,apellido);
 
         }
     }

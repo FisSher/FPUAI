@@ -19,7 +19,9 @@ namespace TPn2
         }
 
         #region constructores
+        
         public Alumno() { }
+
         public Alumno(string nombre, string apellido, double promedio)
         {
             Nombre = nombre;

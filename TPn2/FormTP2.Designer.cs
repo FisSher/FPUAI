@@ -65,6 +65,10 @@ namespace TPn2
             this.buttonAsignaDoc = new System.Windows.Forms.Button();
             this.dataGridViewRendimientos = new System.Windows.Forms.DataGridView();
             this.dataGridViewPersonasEnCurso = new System.Windows.Forms.DataGridView();
+            this.textBoxCodModificar = new System.Windows.Forms.TextBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
+            this.radioButton2 = new System.Windows.Forms.RadioButton();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocentes)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).BeginInit();
@@ -92,7 +96,7 @@ namespace TPn2
             // 
             // buttonCargaPersona
             // 
-            this.buttonCargaPersona.Location = new System.Drawing.Point(240, 14);
+            this.buttonCargaPersona.Location = new System.Drawing.Point(356, 12);
             this.buttonCargaPersona.Name = "buttonCargaPersona";
             this.buttonCargaPersona.Size = new System.Drawing.Size(120, 37);
             this.buttonCargaPersona.TabIndex = 2;
@@ -134,22 +138,25 @@ namespace TPn2
             // 
             // buttonModificar
             // 
-            this.buttonModificar.Location = new System.Drawing.Point(240, 57);
+            this.buttonModificar.Location = new System.Drawing.Point(356, 55);
             this.buttonModificar.Name = "buttonModificar";
             this.buttonModificar.Size = new System.Drawing.Size(120, 37);
             this.buttonModificar.TabIndex = 7;
             this.buttonModificar.Text = "Modificar";
             this.buttonModificar.UseVisualStyleBackColor = true;
+            this.buttonModificar.Visible = false;
+            this.buttonModificar.Click += new System.EventHandler(this.buttonModificar_Click);
             // 
             // buttonEliminar
             // 
-            this.buttonEliminar.Location = new System.Drawing.Point(240, 100);
+            this.buttonEliminar.Location = new System.Drawing.Point(356, 98);
             this.buttonEliminar.Name = "buttonEliminar";
             this.buttonEliminar.Size = new System.Drawing.Size(120, 37);
             this.buttonEliminar.TabIndex = 8;
             this.buttonEliminar.Text = "Eliminar";
             this.buttonEliminar.UseMnemonic = false;
             this.buttonEliminar.UseVisualStyleBackColor = true;
+            this.buttonEliminar.Click += new System.EventHandler(this.buttonEliminar_Click);
             // 
             // label4
             // 
@@ -313,7 +320,7 @@ namespace TPn2
             // 
             // textBoxCargaCurso
             // 
-            this.textBoxCargaCurso.Location = new System.Drawing.Point(403, 33);
+            this.textBoxCargaCurso.Location = new System.Drawing.Point(599, 39);
             this.textBoxCargaCurso.Name = "textBoxCargaCurso";
             this.textBoxCargaCurso.Size = new System.Drawing.Size(100, 20);
             this.textBoxCargaCurso.TabIndex = 35;
@@ -321,7 +328,7 @@ namespace TPn2
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(400, 16);
+            this.label11.Location = new System.Drawing.Point(596, 22);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 13);
             this.label11.TabIndex = 36;
@@ -329,7 +336,7 @@ namespace TPn2
             // 
             // buttonCargaCurso
             // 
-            this.buttonCargaCurso.Location = new System.Drawing.Point(403, 59);
+            this.buttonCargaCurso.Location = new System.Drawing.Point(599, 65);
             this.buttonCargaCurso.Name = "buttonCargaCurso";
             this.buttonCargaCurso.Size = new System.Drawing.Size(120, 37);
             this.buttonCargaCurso.TabIndex = 37;
@@ -389,11 +396,55 @@ namespace TPn2
             this.dataGridViewPersonasEnCurso.Size = new System.Drawing.Size(343, 93);
             this.dataGridViewPersonasEnCurso.TabIndex = 44;
             // 
+            // textBoxCodModificar
+            // 
+            this.textBoxCodModificar.Location = new System.Drawing.Point(179, 25);
+            this.textBoxCodModificar.Name = "textBoxCodModificar";
+            this.textBoxCodModificar.Size = new System.Drawing.Size(100, 20);
+            this.textBoxCodModificar.TabIndex = 45;
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(176, 10);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(174, 13);
+            this.label15.TabIndex = 46;
+            this.label15.Text = "Codigo persona a modificar o borrar";
+            // 
+            // radioButton1
+            // 
+            this.radioButton1.AutoSize = true;
+            this.radioButton1.Checked = true;
+            this.radioButton1.Location = new System.Drawing.Point(223, 63);
+            this.radioButton1.Name = "radioButton1";
+            this.radioButton1.Size = new System.Drawing.Size(56, 17);
+            this.radioButton1.TabIndex = 47;
+            this.radioButton1.TabStop = true;
+            this.radioButton1.Text = "Cargar";
+            this.radioButton1.UseVisualStyleBackColor = true;
+            this.radioButton1.CheckedChanged += new System.EventHandler(this.radioButton1_CheckedChanged);
+            // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Location = new System.Drawing.Point(223, 82);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(68, 17);
+            this.radioButton2.TabIndex = 48;
+            this.radioButton2.Text = "Modificar";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            this.radioButton2.CheckedChanged += new System.EventHandler(this.radioButton2_CheckedChanged);
+            // 
             // FormTP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1295, 548);
+            this.Controls.Add(this.radioButton2);
+            this.Controls.Add(this.radioButton1);
+            this.Controls.Add(this.label15);
+            this.Controls.Add(this.textBoxCodModificar);
             this.Controls.Add(this.dataGridViewPersonasEnCurso);
             this.Controls.Add(this.dataGridViewRendimientos);
             this.Controls.Add(this.buttonAsignaDoc);
@@ -481,5 +532,9 @@ namespace TPn2
         private System.Windows.Forms.Button buttonAsignaDoc;
         private System.Windows.Forms.DataGridView dataGridViewRendimientos;
         private System.Windows.Forms.DataGridView dataGridViewPersonasEnCurso;
+        private System.Windows.Forms.TextBox textBoxCodModificar;
+        private System.Windows.Forms.Label label15;
+        private System.Windows.Forms.RadioButton radioButton1;
+        private System.Windows.Forms.RadioButton radioButton2;
     }
 }
