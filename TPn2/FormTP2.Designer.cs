@@ -45,10 +45,6 @@ namespace TPn2
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxDesemp = new System.Windows.Forms.TextBox();
             this.listBoxCursos = new System.Windows.Forms.ListBox();
-            this.dataGridViewPersonasEnCurso = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn1 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn3 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.label8 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.labelDocenteCurso = new System.Windows.Forms.Label();
@@ -60,10 +56,6 @@ namespace TPn2
             this.label14 = new System.Windows.Forms.Label();
             this.buttonAsignaAlumn = new System.Windows.Forms.Button();
             this.buttonMejorRendimiento = new System.Windows.Forms.Button();
-            this.dataGridViewRendimientos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn4 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn5 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn6 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.textBoxCargaCurso = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonCargaCurso = new System.Windows.Forms.Button();
@@ -71,10 +63,12 @@ namespace TPn2
             this.dataGridViewAlumnos = new System.Windows.Forms.DataGridView();
             this.dataGridViewDocentes = new System.Windows.Forms.DataGridView();
             this.buttonAsignaDoc = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonasEnCurso)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).BeginInit();
+            this.dataGridViewRendimientos = new System.Windows.Forms.DataGridView();
+            this.dataGridViewPersonasEnCurso = new System.Windows.Forms.DataGridView();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocentes)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonasEnCurso)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -217,33 +211,6 @@ namespace TPn2
             this.listBoxCursos.Size = new System.Drawing.Size(111, 173);
             this.listBoxCursos.TabIndex = 17;
             // 
-            // dataGridViewPersonasEnCurso
-            // 
-            this.dataGridViewPersonasEnCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPersonasEnCurso.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn1,
-            this.dataGridViewTextBoxColumn2,
-            this.dataGridViewTextBoxColumn3});
-            this.dataGridViewPersonasEnCurso.Location = new System.Drawing.Point(734, 257);
-            this.dataGridViewPersonasEnCurso.Name = "dataGridViewPersonasEnCurso";
-            this.dataGridViewPersonasEnCurso.Size = new System.Drawing.Size(346, 106);
-            this.dataGridViewPersonasEnCurso.TabIndex = 18;
-            // 
-            // dataGridViewTextBoxColumn1
-            // 
-            this.dataGridViewTextBoxColumn1.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
-            // 
-            // dataGridViewTextBoxColumn2
-            // 
-            this.dataGridViewTextBoxColumn2.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
-            // 
-            // dataGridViewTextBoxColumn3
-            // 
-            this.dataGridViewTextBoxColumn3.HeaderText = "Promedio/Desempeño";
-            this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
-            // 
             // label8
             // 
             this.label8.AutoSize = true;
@@ -344,33 +311,6 @@ namespace TPn2
             this.buttonMejorRendimiento.Text = "Mostrar";
             this.buttonMejorRendimiento.UseVisualStyleBackColor = true;
             // 
-            // dataGridViewRendimientos
-            // 
-            this.dataGridViewRendimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRendimientos.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
-            this.dataGridViewTextBoxColumn4,
-            this.dataGridViewTextBoxColumn5,
-            this.dataGridViewTextBoxColumn6});
-            this.dataGridViewRendimientos.Location = new System.Drawing.Point(734, 99);
-            this.dataGridViewRendimientos.Name = "dataGridViewRendimientos";
-            this.dataGridViewRendimientos.Size = new System.Drawing.Size(352, 108);
-            this.dataGridViewRendimientos.TabIndex = 34;
-            // 
-            // dataGridViewTextBoxColumn4
-            // 
-            this.dataGridViewTextBoxColumn4.HeaderText = "Nombre";
-            this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
-            // 
-            // dataGridViewTextBoxColumn5
-            // 
-            this.dataGridViewTextBoxColumn5.HeaderText = "Apellido";
-            this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
-            // 
-            // dataGridViewTextBoxColumn6
-            // 
-            this.dataGridViewTextBoxColumn6.HeaderText = "Promedio/Desempeño";
-            this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
-            // 
             // textBoxCargaCurso
             // 
             this.textBoxCargaCurso.Location = new System.Drawing.Point(403, 33);
@@ -433,11 +373,29 @@ namespace TPn2
             this.buttonAsignaDoc.Text = "Asignar a curso";
             this.buttonAsignaDoc.UseVisualStyleBackColor = true;
             // 
+            // dataGridViewRendimientos
+            // 
+            this.dataGridViewRendimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewRendimientos.Location = new System.Drawing.Point(734, 100);
+            this.dataGridViewRendimientos.Name = "dataGridViewRendimientos";
+            this.dataGridViewRendimientos.Size = new System.Drawing.Size(343, 93);
+            this.dataGridViewRendimientos.TabIndex = 43;
+            // 
+            // dataGridViewPersonasEnCurso
+            // 
+            this.dataGridViewPersonasEnCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridViewPersonasEnCurso.Location = new System.Drawing.Point(734, 250);
+            this.dataGridViewPersonasEnCurso.Name = "dataGridViewPersonasEnCurso";
+            this.dataGridViewPersonasEnCurso.Size = new System.Drawing.Size(343, 93);
+            this.dataGridViewPersonasEnCurso.TabIndex = 44;
+            // 
             // FormTP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(1295, 548);
+            this.Controls.Add(this.dataGridViewPersonasEnCurso);
+            this.Controls.Add(this.dataGridViewRendimientos);
             this.Controls.Add(this.buttonAsignaDoc);
             this.Controls.Add(this.dataGridViewDocentes);
             this.Controls.Add(this.dataGridViewAlumnos);
@@ -445,7 +403,6 @@ namespace TPn2
             this.Controls.Add(this.buttonCargaCurso);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxCargaCurso);
-            this.Controls.Add(this.dataGridViewRendimientos);
             this.Controls.Add(this.buttonMejorRendimiento);
             this.Controls.Add(this.buttonAsignaAlumn);
             this.Controls.Add(this.labelTotCursos);
@@ -457,7 +414,6 @@ namespace TPn2
             this.Controls.Add(this.labelDocenteCurso);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.dataGridViewPersonasEnCurso);
             this.Controls.Add(this.listBoxCursos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxDesemp);
@@ -478,10 +434,10 @@ namespace TPn2
             this.Text = "FormTP2";
             this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.FormTP2_Load);
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonasEnCurso)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocentes)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonasEnCurso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -505,10 +461,6 @@ namespace TPn2
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxDesemp;
         private System.Windows.Forms.ListBox listBoxCursos;
-        private System.Windows.Forms.DataGridView dataGridViewPersonasEnCurso;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label labelDocenteCurso;
@@ -520,10 +472,6 @@ namespace TPn2
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button buttonAsignaAlumn;
         private System.Windows.Forms.Button buttonMejorRendimiento;
-        private System.Windows.Forms.DataGridView dataGridViewRendimientos;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
         private System.Windows.Forms.TextBox textBoxCargaCurso;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonCargaCurso;
@@ -531,5 +479,7 @@ namespace TPn2
         private System.Windows.Forms.DataGridView dataGridViewAlumnos;
         private System.Windows.Forms.DataGridView dataGridViewDocentes;
         private System.Windows.Forms.Button buttonAsignaDoc;
+        private System.Windows.Forms.DataGridView dataGridViewRendimientos;
+        private System.Windows.Forms.DataGridView dataGridViewPersonasEnCurso;
     }
 }
