@@ -47,11 +47,11 @@ namespace TPn2
 
         private void RefrescarListaCursos()
         {
-            dataGridViewAlumnos.ClearSelection();
             listBoxCursos.DataSource = null;
-            dataGridViewAlumnos.Refresh();
-            if (LCursos != null)
+            if (LCursos!=null)
+            {
                 listBoxCursos.DataSource = LCursos;
+            }
         }
 
         private void RefrescarListaAlumnos()
@@ -102,7 +102,6 @@ namespace TPn2
         /// </summary>
 
         #region Carga de
-
 
         private void buttonCargaPersona_Click(object sender, EventArgs e)
         {
@@ -350,6 +349,29 @@ namespace TPn2
                 {
                     MessageBox.Show(ex.Message);
                 }
+            }
+        }
+
+        private void buttonEliminarCurso_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Curso curso = (Curso)listBoxCursos.SelectedItem;
+                foreach (Curso c in LCursos)
+                {
+                    if (c.CodigoCurso == curso.CodigoCurso)
+                    {
+                        LCursos.Remove(curso);
+                        MessageBox.Show("Eliminado.");
+                        RefrescarListaCursos();
+                        break;
+                    }
+                    
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
             }
         }
     }

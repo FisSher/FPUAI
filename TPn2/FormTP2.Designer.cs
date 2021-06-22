@@ -445,6 +445,7 @@ namespace TPn2
             this.buttonEliminarCurso.TabIndex = 49;
             this.buttonEliminarCurso.Text = "Eliminar curso";
             this.buttonEliminarCurso.UseVisualStyleBackColor = true;
+            this.buttonEliminarCurso.Click += new System.EventHandler(this.buttonEliminarCurso_Click);
             // 
             // FormTP2
             // 
