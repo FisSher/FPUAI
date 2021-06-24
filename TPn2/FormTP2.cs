@@ -22,9 +22,9 @@ namespace TPn2
 
         #region Carga inicial
 
-        private List<Curso> LCursos = new List<Curso>();
-        private List<Alumno> LAlumnos = new List<Alumno>();
-        private List<Docente> LDocentes = new List<Docente>();
+        public List<Curso> LCursos = new List<Curso>();
+        public List<Alumno> LAlumnos = new List<Alumno>();
+        public List<Docente> LDocentes = new List<Docente>();
 
         public FormTP2()
         {
@@ -34,7 +34,14 @@ namespace TPn2
         private void FormTP2_Load(object sender, EventArgs e)
         {
             comboBoxTipo.DataSource = Enum.GetValues(typeof(TipoUsuarios));
-            comboBoxRend.DataSource = Enum.GetValues(typeof(TipoUsuarios));
+            LDocentes.Add(new Docente("Virginia", "Carr", 10));
+            LDocentes.Add(new Docente("Esteban", "Pol", 10));
+            LCursos.Add(new Curso("K1503"));
+            LAlumnos.Add(new Alumno("Facundo", "Paolini", 5));
+            LAlumnos.Add(new Alumno("Gaston", "Minion", 7));
+            RefrescarListaAlumnos();
+            RefrescarListaCursos();
+            RefrescarListaDocentes();
         }
 
         #endregion Carga inicial
@@ -48,7 +55,7 @@ namespace TPn2
         private void RefrescarListaCursos()
         {
             listBoxCursos.DataSource = null;
-            if (LCursos!=null)
+            if (LCursos != null)
             {
                 listBoxCursos.DataSource = LCursos;
             }
@@ -60,7 +67,10 @@ namespace TPn2
             dataGridViewAlumnos.DataSource = null;
             dataGridViewAlumnos.Refresh();
             if (LAlumnos != null)
+            {
                 dataGridViewAlumnos.DataSource = LAlumnos;
+                dataGridViewAlumnos.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            }
         }
 
         private void RefrescarListaDocentes()
@@ -69,7 +79,10 @@ namespace TPn2
             dataGridViewDocentes.DataSource = null;
             dataGridViewAlumnos.Refresh();
             if (LDocentes != null)
+            {
                 dataGridViewDocentes.DataSource = LDocentes;
+                dataGridViewDocentes.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.DisplayedCells;
+            }
         }
 
         #endregion Metodos refresh de listas
@@ -192,20 +205,34 @@ namespace TPn2
 
         //TODO asignar
         /// <summary>
-        /// Botón para asignar alumno o docente a curso
+        /// Botón para asignar alumno a curso
         /// </summary>
+        ///
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
         }
 
+        //Boton Asigna docente a curso
+        //Lo clono? estaría copado
+        private void buttonAsignaDoc_Click(object sender, EventArgs e)
+        {
+            Curso curso = (Curso)listBoxCursos.SelectedItem;
+            Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
+            curso.Docente = docente;
+
+
+        }
+
         private void dataGridViewAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewDocentes.CurrentCell = null;
+            dataGridViewDocentes.ClearSelection();
+            dataGridViewDocentes.CurrentCell.Selected = false;
         }
 
         private void dataGridViewDocentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            dataGridViewAlumnos.CurrentCell = null;
+            dataGridViewAlumnos.ClearSelection();
+            dataGridViewAlumnos.CurrentCell.Selected = false;
         }
 
         //El botón modifica promedio, desempeño
@@ -366,7 +393,6 @@ namespace TPn2
                         RefrescarListaCursos();
                         break;
                     }
-                    
                 }
             }
             catch (Exception ex)
@@ -374,5 +400,7 @@ namespace TPn2
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }

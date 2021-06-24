@@ -45,17 +45,7 @@ namespace TPn2
             this.label7 = new System.Windows.Forms.Label();
             this.textBoxDesemp = new System.Windows.Forms.TextBox();
             this.listBoxCursos = new System.Windows.Forms.ListBox();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.labelDocenteCurso = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.comboBoxRend = new System.Windows.Forms.ComboBox();
-            this.label12 = new System.Windows.Forms.Label();
-            this.labelTotPersonas = new System.Windows.Forms.Label();
-            this.labelTotCursos = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
             this.buttonAsignaAlumn = new System.Windows.Forms.Button();
-            this.buttonMejorRendimiento = new System.Windows.Forms.Button();
             this.textBoxCargaCurso = new System.Windows.Forms.TextBox();
             this.label11 = new System.Windows.Forms.Label();
             this.buttonCargaCurso = new System.Windows.Forms.Button();
@@ -63,8 +53,6 @@ namespace TPn2
             this.dataGridViewAlumnos = new System.Windows.Forms.DataGridView();
             this.dataGridViewDocentes = new System.Windows.Forms.DataGridView();
             this.buttonAsignaDoc = new System.Windows.Forms.Button();
-            this.dataGridViewRendimientos = new System.Windows.Forms.DataGridView();
-            this.dataGridViewPersonasEnCurso = new System.Windows.Forms.DataGridView();
             this.textBoxCodModificar = new System.Windows.Forms.TextBox();
             this.label15 = new System.Windows.Forms.Label();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
@@ -72,14 +60,12 @@ namespace TPn2
             this.buttonEliminarCurso = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocentes)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonasEnCurso)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(596, 135);
+            this.label1.Location = new System.Drawing.Point(501, 125);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(63, 13);
             this.label1.TabIndex = 0;
@@ -214,95 +200,14 @@ namespace TPn2
             // listBoxCursos
             // 
             this.listBoxCursos.FormattingEnabled = true;
-            this.listBoxCursos.Location = new System.Drawing.Point(599, 170);
+            this.listBoxCursos.Location = new System.Drawing.Point(504, 160);
             this.listBoxCursos.Name = "listBoxCursos";
             this.listBoxCursos.Size = new System.Drawing.Size(111, 173);
             this.listBoxCursos.TabIndex = 17;
             // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(731, 231);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(60, 13);
-            this.label8.TabIndex = 19;
-            this.label8.Text = "Integrantes";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(797, 231);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(48, 13);
-            this.label9.TabIndex = 20;
-            this.label9.Text = "Docente";
-            // 
-            // labelDocenteCurso
-            // 
-            this.labelDocenteCurso.AutoSize = true;
-            this.labelDocenteCurso.Location = new System.Drawing.Point(851, 231);
-            this.labelDocenteCurso.Name = "labelDocenteCurso";
-            this.labelDocenteCurso.Size = new System.Drawing.Size(10, 13);
-            this.labelDocenteCurso.TabIndex = 21;
-            this.labelDocenteCurso.Text = "-";
-            // 
-            // label10
-            // 
-            this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(731, 25);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(192, 13);
-            this.label10.TabIndex = 22;
-            this.label10.Text = "Listado ordenado por mejor rendimiento";
-            // 
-            // comboBoxRend
-            // 
-            this.comboBoxRend.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.comboBoxRend.FormattingEnabled = true;
-            this.comboBoxRend.Location = new System.Drawing.Point(734, 41);
-            this.comboBoxRend.Name = "comboBoxRend";
-            this.comboBoxRend.Size = new System.Drawing.Size(121, 21);
-            this.comboBoxRend.TabIndex = 23;
-            // 
-            // label12
-            // 
-            this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(732, 378);
-            this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(77, 13);
-            this.label12.TabIndex = 28;
-            this.label12.Text = "Total personas";
-            // 
-            // labelTotPersonas
-            // 
-            this.labelTotPersonas.AutoSize = true;
-            this.labelTotPersonas.Location = new System.Drawing.Point(816, 378);
-            this.labelTotPersonas.Name = "labelTotPersonas";
-            this.labelTotPersonas.Size = new System.Drawing.Size(10, 13);
-            this.labelTotPersonas.TabIndex = 29;
-            this.labelTotPersonas.Text = "-";
-            // 
-            // labelTotCursos
-            // 
-            this.labelTotCursos.AutoSize = true;
-            this.labelTotCursos.Location = new System.Drawing.Point(816, 405);
-            this.labelTotCursos.Name = "labelTotCursos";
-            this.labelTotCursos.Size = new System.Drawing.Size(10, 13);
-            this.labelTotCursos.TabIndex = 31;
-            this.labelTotCursos.Text = "-";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(732, 405);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 13);
-            this.label14.TabIndex = 30;
-            this.label14.Text = "Total cursos";
-            // 
             // buttonAsignaAlumn
             // 
-            this.buttonAsignaAlumn.Location = new System.Drawing.Point(463, 250);
+            this.buttonAsignaAlumn.Location = new System.Drawing.Point(361, 250);
             this.buttonAsignaAlumn.Name = "buttonAsignaAlumn";
             this.buttonAsignaAlumn.Size = new System.Drawing.Size(115, 34);
             this.buttonAsignaAlumn.TabIndex = 32;
@@ -310,18 +215,9 @@ namespace TPn2
             this.buttonAsignaAlumn.UseVisualStyleBackColor = true;
             this.buttonAsignaAlumn.Click += new System.EventHandler(this.buttonAsignaCurso_Click);
             // 
-            // buttonMejorRendimiento
-            // 
-            this.buttonMejorRendimiento.Location = new System.Drawing.Point(734, 68);
-            this.buttonMejorRendimiento.Name = "buttonMejorRendimiento";
-            this.buttonMejorRendimiento.Size = new System.Drawing.Size(108, 25);
-            this.buttonMejorRendimiento.TabIndex = 33;
-            this.buttonMejorRendimiento.Text = "Mostrar";
-            this.buttonMejorRendimiento.UseVisualStyleBackColor = true;
-            // 
             // textBoxCargaCurso
             // 
-            this.textBoxCargaCurso.Location = new System.Drawing.Point(599, 39);
+            this.textBoxCargaCurso.Location = new System.Drawing.Point(504, 29);
             this.textBoxCargaCurso.Name = "textBoxCargaCurso";
             this.textBoxCargaCurso.Size = new System.Drawing.Size(100, 20);
             this.textBoxCargaCurso.TabIndex = 35;
@@ -329,7 +225,7 @@ namespace TPn2
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(596, 22);
+            this.label11.Location = new System.Drawing.Point(501, 12);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(34, 13);
             this.label11.TabIndex = 36;
@@ -337,7 +233,7 @@ namespace TPn2
             // 
             // buttonCargaCurso
             // 
-            this.buttonCargaCurso.Location = new System.Drawing.Point(599, 65);
+            this.buttonCargaCurso.Location = new System.Drawing.Point(504, 55);
             this.buttonCargaCurso.Name = "buttonCargaCurso";
             this.buttonCargaCurso.Size = new System.Drawing.Size(120, 37);
             this.buttonCargaCurso.TabIndex = 37;
@@ -359,7 +255,7 @@ namespace TPn2
             this.dataGridViewAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewAlumnos.Location = new System.Drawing.Point(10, 151);
             this.dataGridViewAlumnos.Name = "dataGridViewAlumnos";
-            this.dataGridViewAlumnos.Size = new System.Drawing.Size(568, 93);
+            this.dataGridViewAlumnos.Size = new System.Drawing.Size(466, 93);
             this.dataGridViewAlumnos.TabIndex = 40;
             this.dataGridViewAlumnos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewAlumnos_CellContentClick);
             // 
@@ -368,34 +264,19 @@ namespace TPn2
             this.dataGridViewDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridViewDocentes.Location = new System.Drawing.Point(10, 325);
             this.dataGridViewDocentes.Name = "dataGridViewDocentes";
-            this.dataGridViewDocentes.Size = new System.Drawing.Size(568, 93);
+            this.dataGridViewDocentes.Size = new System.Drawing.Size(466, 93);
             this.dataGridViewDocentes.TabIndex = 41;
             this.dataGridViewDocentes.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dataGridViewDocentes_CellContentClick);
             // 
             // buttonAsignaDoc
             // 
-            this.buttonAsignaDoc.Location = new System.Drawing.Point(463, 424);
+            this.buttonAsignaDoc.Location = new System.Drawing.Point(361, 424);
             this.buttonAsignaDoc.Name = "buttonAsignaDoc";
             this.buttonAsignaDoc.Size = new System.Drawing.Size(115, 34);
             this.buttonAsignaDoc.TabIndex = 42;
             this.buttonAsignaDoc.Text = "Asignar a curso";
             this.buttonAsignaDoc.UseVisualStyleBackColor = true;
-            // 
-            // dataGridViewRendimientos
-            // 
-            this.dataGridViewRendimientos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewRendimientos.Location = new System.Drawing.Point(734, 100);
-            this.dataGridViewRendimientos.Name = "dataGridViewRendimientos";
-            this.dataGridViewRendimientos.Size = new System.Drawing.Size(343, 93);
-            this.dataGridViewRendimientos.TabIndex = 43;
-            // 
-            // dataGridViewPersonasEnCurso
-            // 
-            this.dataGridViewPersonasEnCurso.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewPersonasEnCurso.Location = new System.Drawing.Point(734, 250);
-            this.dataGridViewPersonasEnCurso.Name = "dataGridViewPersonasEnCurso";
-            this.dataGridViewPersonasEnCurso.Size = new System.Drawing.Size(343, 93);
-            this.dataGridViewPersonasEnCurso.TabIndex = 44;
+            this.buttonAsignaDoc.Click += new System.EventHandler(this.buttonAsignaDoc_Click);
             // 
             // textBoxCodModificar
             // 
@@ -439,7 +320,7 @@ namespace TPn2
             // 
             // buttonEliminarCurso
             // 
-            this.buttonEliminarCurso.Location = new System.Drawing.Point(599, 349);
+            this.buttonEliminarCurso.Location = new System.Drawing.Point(504, 339);
             this.buttonEliminarCurso.Name = "buttonEliminarCurso";
             this.buttonEliminarCurso.Size = new System.Drawing.Size(111, 42);
             this.buttonEliminarCurso.TabIndex = 49;
@@ -451,14 +332,12 @@ namespace TPn2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1295, 548);
+            this.ClientSize = new System.Drawing.Size(699, 482);
             this.Controls.Add(this.buttonEliminarCurso);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.textBoxCodModificar);
-            this.Controls.Add(this.dataGridViewPersonasEnCurso);
-            this.Controls.Add(this.dataGridViewRendimientos);
             this.Controls.Add(this.buttonAsignaDoc);
             this.Controls.Add(this.dataGridViewDocentes);
             this.Controls.Add(this.dataGridViewAlumnos);
@@ -466,17 +345,7 @@ namespace TPn2
             this.Controls.Add(this.buttonCargaCurso);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.textBoxCargaCurso);
-            this.Controls.Add(this.buttonMejorRendimiento);
             this.Controls.Add(this.buttonAsignaAlumn);
-            this.Controls.Add(this.labelTotCursos);
-            this.Controls.Add(this.label14);
-            this.Controls.Add(this.labelTotPersonas);
-            this.Controls.Add(this.label12);
-            this.Controls.Add(this.comboBoxRend);
-            this.Controls.Add(this.label10);
-            this.Controls.Add(this.labelDocenteCurso);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label8);
             this.Controls.Add(this.listBoxCursos);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.textBoxDesemp);
@@ -499,8 +368,6 @@ namespace TPn2
             this.Load += new System.EventHandler(this.FormTP2_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocentes)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonasEnCurso)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -524,17 +391,7 @@ namespace TPn2
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.TextBox textBoxDesemp;
         private System.Windows.Forms.ListBox listBoxCursos;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label labelDocenteCurso;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.ComboBox comboBoxRend;
-        private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.Label labelTotPersonas;
-        private System.Windows.Forms.Label labelTotCursos;
-        private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Button buttonAsignaAlumn;
-        private System.Windows.Forms.Button buttonMejorRendimiento;
         private System.Windows.Forms.TextBox textBoxCargaCurso;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.Button buttonCargaCurso;
@@ -542,8 +399,6 @@ namespace TPn2
         private System.Windows.Forms.DataGridView dataGridViewAlumnos;
         private System.Windows.Forms.DataGridView dataGridViewDocentes;
         private System.Windows.Forms.Button buttonAsignaDoc;
-        private System.Windows.Forms.DataGridView dataGridViewRendimientos;
-        private System.Windows.Forms.DataGridView dataGridViewPersonasEnCurso;
         private System.Windows.Forms.TextBox textBoxCodModificar;
         private System.Windows.Forms.Label label15;
         private System.Windows.Forms.RadioButton radioButton1;

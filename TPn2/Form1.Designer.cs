@@ -31,13 +31,15 @@ namespace TPn2
         {
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.tP2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.tP2ToolStripMenuItem});
+            this.tP2ToolStripMenuItem,
+            this.informesToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
             this.menuStrip1.Size = new System.Drawing.Size(800, 24);
@@ -47,9 +49,16 @@ namespace TPn2
             // tP2ToolStripMenuItem
             // 
             this.tP2ToolStripMenuItem.Name = "tP2ToolStripMenuItem";
-            this.tP2ToolStripMenuItem.Size = new System.Drawing.Size(38, 20);
-            this.tP2ToolStripMenuItem.Text = "TP2";
+            this.tP2ToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.tP2ToolStripMenuItem.Text = "ABM";
             this.tP2ToolStripMenuItem.Click += new System.EventHandler(this.tP2ToolStripMenuItem_Click);
+            // 
+            // informesToolStripMenuItem
+            // 
+            this.informesToolStripMenuItem.Name = "informesToolStripMenuItem";
+            this.informesToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.informesToolStripMenuItem.Text = "Informes";
+            this.informesToolStripMenuItem.Click += new System.EventHandler(this.informesToolStripMenuItem_Click);
             // 
             // Form1
             // 
@@ -74,6 +83,7 @@ namespace TPn2
 
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem tP2ToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informesToolStripMenuItem;
     }
 }
 

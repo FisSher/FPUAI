@@ -27,5 +27,14 @@ namespace TPn2
             frm2.Show();
         }
 
+        private void informesToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            Informes informes = new Informes
+            {
+                MdiParent = this
+
+            };
+            informes.Show();
+        }
     }
 }
