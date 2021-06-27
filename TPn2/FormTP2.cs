@@ -211,7 +211,6 @@ namespace TPn2
 
         #endregion Carga de
 
-        //TODO asignar
         /// <summary>
         /// Botón para asignar alumno a curso
         /// </summary>

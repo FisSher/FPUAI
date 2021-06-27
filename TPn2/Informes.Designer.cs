@@ -161,6 +161,7 @@ namespace TPn2
             this.listBoxCursos.Name = "listBoxCursos";
             this.listBoxCursos.Size = new System.Drawing.Size(111, 173);
             this.listBoxCursos.TabIndex = 58;
+            this.listBoxCursos.SelectedIndexChanged += new System.EventHandler(this.listBoxCursos_SelectedIndexChanged);
             // 
             // label1
             // 
