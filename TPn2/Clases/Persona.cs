@@ -1,9 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using OtroNamespace;
 using TPn2.Clases;
 
 namespace OtroNamespace
@@ -15,10 +10,12 @@ namespace OtroNamespace
         public string Apellido { get; set; }
 
         public Curso curso { get; set; }
+
         public string CodigoUnico
         {
             get { return _codigoUnico; }
-            set {
+            set
+            {
                 if (string.IsNullOrEmpty(Nombre) || string.IsNullOrEmpty(Apellido))
                 {
                     _codigoUnico = value;
@@ -27,19 +24,13 @@ namespace OtroNamespace
                 {
                     _codigoUnico = CrearCodUnico(Nombre, Apellido);
                 }
-                
             }
         }
-
-
-       
-
-        
 
         public virtual string CrearCodUnico(string nombre, string apellido)
         {
             Random rndm = new Random();
-            return nombre.ToLower().Substring(0, 1) + apellido.ToLower().Substring(0, 1) + rndm.Next(0,100).ToString();
+            return nombre.ToLower().Substring(0, 1) + apellido.ToLower().Substring(0, 1) + rndm.Next(0, 100).ToString();
         }
     }
 }

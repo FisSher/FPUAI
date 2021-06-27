@@ -28,11 +28,20 @@ namespace TPn2
         private void FormTP2_Load(object sender, EventArgs e)
         {
             comboBoxTipo.DataSource = Enum.GetValues(typeof(TipoUsuarios));
-            LDocentes.Add(new Docente("Virginia", "Carr", 10));
-            LDocentes.Add(new Docente("Esteban", "Pol", 10));
-            LCursos.Add(new Curso("K1503"));
-            LAlumnos.Add(new Alumno("Facundo", "Paolini", true));
-            LAlumnos.Add(new Alumno("Gaston", "Minion", true));
+            if (LDocentes.Count == 0)
+            {
+                LDocentes.Add(new Docente("Virginia", "Carr", 10));
+                LDocentes.Add(new Docente("Esteban", "Pol", 10));
+            }
+            if (LCursos.Count == 0)
+                LCursos.Add(new Curso("K1503"));
+
+            if (LAlumnos.Count == 0)
+            {
+                LAlumnos.Add(new Alumno("Facundo", "Paolini", true));
+                LAlumnos.Add(new Alumno("Gaston", "Minion", true));
+            }
+
             RefrescarListaAlumnos();
             RefrescarListaCursos();
             RefrescarListaDocentes();

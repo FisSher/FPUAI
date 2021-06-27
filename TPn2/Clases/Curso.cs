@@ -1,10 +1,8 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using TPn2.Excepcion;
 using TPn2.Interfaces;
+
 namespace TPn2.Clases
 {
     public class Curso : IPromediable
@@ -34,7 +32,6 @@ namespace TPn2.Clases
             return CodigoCurso;
         }
 
-
         //Aplico interfaz custom
         double IPromediable.CalcularPromedio(List<Alumno> lista)
         {
@@ -52,25 +49,15 @@ namespace TPn2.Clases
                 return 0;
         }
 
-
-        //Aplico interfaz integrada (creo que no tengo idea de que estoy haciendo acá)
+        //Aplico interfaz integrada (creo que no tengo idea de que estoy haciendo acá a las 4:32 am que hice esto)
         public class OrdenarPorPromedio : IComparer<Alumno>
         {
             public int Compare(Alumno x, Alumno y)
             {
-                if (x != null && y != null)
-                {
-                    if (x.Promedio == y.Promedio)
-                        return 0;
-                    else if (x.Promedio > y.Promedio)
-                        return 1;
-                    else
-                        return -1;
-                }
-                else
-                {
+                if (x == null || y == null)
                     throw new ArgumentNullException();
-                }
+                else
+                    return x.Promedio.CompareTo(y.Promedio);
             }
         }
 
@@ -78,14 +65,10 @@ namespace TPn2.Clases
         {
             public int Compare(Alumno x, Alumno y)
             {
-                if (x != null && y != null)
-                {
-                    return String.Compare(x.Nombre, y.Nombre);
-                }
-                else
-                {
+                if (x == null && y == null)
                     throw new ArgumentNullException();
-                }
+                else
+                    return string.Compare(x.Nombre, y.Nombre);
             }
         }
     }
