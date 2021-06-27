@@ -69,7 +69,7 @@
     <Compile Include="Informes.Designer.cs">
       <DependentUpon>Informes.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IImprimible.cs" />
+    <Compile Include="Interfaces\IPromediable.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Form1.resx">

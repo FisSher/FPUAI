@@ -157,7 +157,7 @@ namespace TPn2
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(7, 135);
+            this.label5.Location = new System.Drawing.Point(7, 182);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(99, 13);
             this.label5.TabIndex = 11;
@@ -207,7 +207,7 @@ namespace TPn2
             // 
             // buttonAsignaAlumn
             // 
-            this.buttonAsignaAlumn.Location = new System.Drawing.Point(361, 250);
+            this.buttonAsignaAlumn.Location = new System.Drawing.Point(361, 297);
             this.buttonAsignaAlumn.Name = "buttonAsignaAlumn";
             this.buttonAsignaAlumn.Size = new System.Drawing.Size(115, 34);
             this.buttonAsignaAlumn.TabIndex = 32;
@@ -244,7 +244,7 @@ namespace TPn2
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(12, 309);
+            this.label13.Location = new System.Drawing.Point(12, 325);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(105, 13);
             this.label13.TabIndex = 39;
@@ -253,7 +253,7 @@ namespace TPn2
             // dataGridViewAlumnos
             // 
             this.dataGridViewAlumnos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewAlumnos.Location = new System.Drawing.Point(10, 151);
+            this.dataGridViewAlumnos.Location = new System.Drawing.Point(10, 198);
             this.dataGridViewAlumnos.Name = "dataGridViewAlumnos";
             this.dataGridViewAlumnos.Size = new System.Drawing.Size(466, 93);
             this.dataGridViewAlumnos.TabIndex = 40;
@@ -262,7 +262,7 @@ namespace TPn2
             // dataGridViewDocentes
             // 
             this.dataGridViewDocentes.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridViewDocentes.Location = new System.Drawing.Point(10, 325);
+            this.dataGridViewDocentes.Location = new System.Drawing.Point(10, 341);
             this.dataGridViewDocentes.Name = "dataGridViewDocentes";
             this.dataGridViewDocentes.Size = new System.Drawing.Size(466, 93);
             this.dataGridViewDocentes.TabIndex = 41;
@@ -270,7 +270,7 @@ namespace TPn2
             // 
             // buttonAsignaDoc
             // 
-            this.buttonAsignaDoc.Location = new System.Drawing.Point(361, 424);
+            this.buttonAsignaDoc.Location = new System.Drawing.Point(361, 440);
             this.buttonAsignaDoc.Name = "buttonAsignaDoc";
             this.buttonAsignaDoc.Size = new System.Drawing.Size(115, 34);
             this.buttonAsignaDoc.TabIndex = 42;
@@ -332,7 +332,7 @@ namespace TPn2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(699, 482);
+            this.ClientSize = new System.Drawing.Size(704, 482);
             this.Controls.Add(this.buttonEliminarCurso);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);

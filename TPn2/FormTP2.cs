@@ -1,15 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using TPn2.Clases;
 using TPn2.Excepcion;
-using TPn2.Interfaces;
+
 namespace TPn2
 {
     public partial class FormTP2 : Form
@@ -22,9 +16,9 @@ namespace TPn2
 
         #region Carga inicial
 
-        public List<Curso> LCursos = new List<Curso>();
-        public List<Alumno> LAlumnos = new List<Alumno>();
-        public List<Docente> LDocentes = new List<Docente>();
+        internal static List<Curso> LCursos = new List<Curso>();
+        internal static List<Alumno> LAlumnos = new List<Alumno>();
+        internal static List<Docente> LDocentes = new List<Docente>();
 
         public FormTP2()
         {
@@ -37,8 +31,8 @@ namespace TPn2
             LDocentes.Add(new Docente("Virginia", "Carr", 10));
             LDocentes.Add(new Docente("Esteban", "Pol", 10));
             LCursos.Add(new Curso("K1503"));
-            LAlumnos.Add(new Alumno("Facundo", "Paolini", 5));
-            LAlumnos.Add(new Alumno("Gaston", "Minion", 7));
+            LAlumnos.Add(new Alumno("Facundo", "Paolini", true));
+            LAlumnos.Add(new Alumno("Gaston", "Minion", true));
             RefrescarListaAlumnos();
             RefrescarListaCursos();
             RefrescarListaDocentes();
@@ -118,7 +112,7 @@ namespace TPn2
 
         private void buttonCargaPersona_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(textBoxNombre.Text) && string.IsNullOrEmpty(textBoxApellido.Text))
+            if (string.IsNullOrEmpty(textBoxNombre.Text))
             {
                 MessageBox.Show("Debe completar nombre y apellido");
             }
@@ -133,9 +127,14 @@ namespace TPn2
                             textBoxApellido.Text,
                             Convert.ToDouble(textBoxPromedio.Text)
                         );
+
                         LAlumnos.Add(alumno);
                         RefrescarListaAlumnos();
                         dataGridViewAlumnos.CurrentCell = null;
+                    }
+                    catch (FormatException)
+                    {
+                        MessageBox.Show("El formato del promedio debe ser numérico");
                     }
                     catch (Exception ex)
                     {
@@ -210,17 +209,74 @@ namespace TPn2
         ///
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
+            try
+            {
+                Curso curso = (Curso)listBoxCursos.SelectedItem;
+                Alumno alumno = (Alumno)dataGridViewAlumnos.CurrentRow.DataBoundItem;
+                curso.ListaAlumnos.Add(alumno);
+                foreach (Alumno a in LAlumnos)
+                {
+                    if (a.CodigoUnico == alumno.CodigoUnico)
+                    {
+                        LAlumnos.Remove(alumno);
+                        break;
+                    }
+                }
+                RefrescarListaAlumnos();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+            RefrescarListaAlumnos();
         }
 
         //Boton Asigna docente a curso
-        //Lo clono? estaría copado
         private void buttonAsignaDoc_Click(object sender, EventArgs e)
         {
-            Curso curso = (Curso)listBoxCursos.SelectedItem;
-            Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
-            curso.Docente = docente;
+            //Si el curso no tiene docente, lo asigna. Si ya tiene, lo intercambia.
+            try
+            {
+                Curso curso = (Curso)listBoxCursos.SelectedItem;
+                if (curso.Docente == null)
+                {
+                    Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
+                    curso.Docente = docente;
+                    foreach (Docente d in LDocentes)
+                    {
+                        if (d.CodigoUnico == docente.CodigoUnico)
+                        {
+                            LDocentes.Remove(docente);
+                            break;
+                        }
+                    }
+                }
+                else
+                {
+                    //traigo el viejo y lo asigno a la lista general
+                    Curso cursoViejo = (Curso)listBoxCursos.SelectedItem;
+                    Docente docenteViejo = cursoViejo.Docente;
+                    LDocentes.Add(docenteViejo);
 
+                    //Saco de la lista general y lo llevo al curso
+                    Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
+                    curso.Docente = docente;
+                    foreach (Docente d in LDocentes)
+                    {
+                        if (d.CodigoUnico == docente.CodigoUnico)
+                        {
+                            LDocentes.Remove(docente);
+                            break;
+                        }
+                    }
+                }
 
+                RefrescarListaDocentes();
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
 
         private void dataGridViewAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -400,7 +456,5 @@ namespace TPn2
                 MessageBox.Show(ex.Message);
             }
         }
-
-
     }
 }

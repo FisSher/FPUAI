@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using OtroNamespace;
+using TPn2.Interfaces;
 
 namespace TPn2
 {
-    public class Alumno:Persona
+    public class Alumno : Persona
     {
+        private static readonly Random random = new Random();
 
         public double Promedio { get; set; }
-
 
         public override string ToString()
         {
@@ -19,20 +20,28 @@ namespace TPn2
         }
 
         #region constructores
-        
-        public Alumno() { }
+
+        public Alumno()
+        {
+        }
+
+        //Este constructor es para facilitar datos random
+        public Alumno(string nombre, string apellido, bool automatico)
+        {
+            Nombre = nombre;
+            Apellido = apellido;
+            CodigoUnico = CrearCodUnico(nombre, apellido);
+            Promedio = random.Next(1, 10);
+        }
 
         public Alumno(string nombre, string apellido, double promedio)
         {
             Nombre = nombre;
             Apellido = apellido;
-            Promedio = promedio;
             CodigoUnico = CrearCodUnico(nombre, apellido);
-
+            Promedio = promedio;
         }
-        #endregion
 
-
-
+        #endregion constructores
     }
 }

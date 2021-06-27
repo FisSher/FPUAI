@@ -7,7 +7,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using TPn2.Clases;
 using static TPn2.FormTP2;
+
 
 namespace TPn2
 {
@@ -21,9 +23,12 @@ namespace TPn2
         private void Informes_Load(object sender, EventArgs e)
         {
             comboBoxRend.DataSource = Enum.GetValues(typeof(TipoUsuarios));
-
         }
 
 
+        private void button1_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
