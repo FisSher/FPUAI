@@ -1,11 +1,24 @@
 ﻿using OtroNamespace;
 using System;
+using TPn2.Eventos;
 
 namespace TPn2
 {
     public class Alumno : Persona
     {
+
+        //Delegado y ahora que hago con esto?
+        //TODO
+        public delegate void DelValidarNotaHandler(Alumno a, AluArgumentos e);
+
+        public event DelValidarNotaHandler EventoValidar;
+        
         private static readonly Random random = new Random();
+
+        AluArgumentos e = new AluArgumentos();
+
+
+
 
         public double Promedio { get; set; }
 

@@ -31,7 +31,7 @@ namespace TPn2
         {
             this.dataGridViewPersonasEnCurso = new System.Windows.Forms.DataGridView();
             this.dataGridViewRendimientos = new System.Windows.Forms.DataGridView();
-            this.buttonMejorRendimiento = new System.Windows.Forms.Button();
+            this.buttonMostrarOrdenado = new System.Windows.Forms.Button();
             this.labelTotCursos = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.labelTotPersonas = new System.Windows.Forms.Label();
@@ -64,14 +64,15 @@ namespace TPn2
             this.dataGridViewRendimientos.Size = new System.Drawing.Size(343, 93);
             this.dataGridViewRendimientos.TabIndex = 55;
             // 
-            // buttonMejorRendimiento
+            // buttonMostrarOrdenado
             // 
-            this.buttonMejorRendimiento.Location = new System.Drawing.Point(142, 275);
-            this.buttonMejorRendimiento.Name = "buttonMejorRendimiento";
-            this.buttonMejorRendimiento.Size = new System.Drawing.Size(108, 25);
-            this.buttonMejorRendimiento.TabIndex = 54;
-            this.buttonMejorRendimiento.Text = "Mostrar";
-            this.buttonMejorRendimiento.UseVisualStyleBackColor = true;
+            this.buttonMostrarOrdenado.Location = new System.Drawing.Point(142, 275);
+            this.buttonMostrarOrdenado.Name = "buttonMostrarOrdenado";
+            this.buttonMostrarOrdenado.Size = new System.Drawing.Size(108, 25);
+            this.buttonMostrarOrdenado.TabIndex = 54;
+            this.buttonMostrarOrdenado.Text = "Mostrar";
+            this.buttonMostrarOrdenado.UseVisualStyleBackColor = true;
+            this.buttonMostrarOrdenado.Click += new System.EventHandler(this.buttonMejorRendimiento_Click);
             // 
             // labelTotCursos
             // 
@@ -192,7 +193,7 @@ namespace TPn2
             this.Controls.Add(this.label1);
             this.Controls.Add(this.dataGridViewPersonasEnCurso);
             this.Controls.Add(this.dataGridViewRendimientos);
-            this.Controls.Add(this.buttonMejorRendimiento);
+            this.Controls.Add(this.buttonMostrarOrdenado);
             this.Controls.Add(this.labelTotCursos);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.labelTotPersonas);
@@ -216,7 +217,7 @@ namespace TPn2
 
         private System.Windows.Forms.DataGridView dataGridViewPersonasEnCurso;
         private System.Windows.Forms.DataGridView dataGridViewRendimientos;
-        private System.Windows.Forms.Button buttonMejorRendimiento;
+        private System.Windows.Forms.Button buttonMostrarOrdenado;
         private System.Windows.Forms.Label labelTotCursos;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label labelTotPersonas;

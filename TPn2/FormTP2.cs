@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Windows.Forms;
 using TPn2.Clases;
+using TPn2.Eventos;
 using TPn2.Excepcion;
 
 namespace TPn2
@@ -27,6 +28,7 @@ namespace TPn2
 
         private void FormTP2_Load(object sender, EventArgs e)
         {
+
             comboBoxTipo.DataSource = Enum.GetValues(typeof(TipoUsuarios));
             if (LDocentes.Count == 0)
             {
@@ -55,7 +57,7 @@ namespace TPn2
 
         #region Metodos refresh de listas
 
-        private void RefrescarListaCursos()
+        internal void RefrescarListaCursos()
         {
             listBoxCursos.DataSource = null;
             if (LCursos != null)
@@ -64,7 +66,7 @@ namespace TPn2
             }
         }
 
-        private void RefrescarListaAlumnos()
+        internal void RefrescarListaAlumnos()
         {
             dataGridViewAlumnos.ClearSelection();
             dataGridViewAlumnos.DataSource = null;
@@ -76,7 +78,7 @@ namespace TPn2
             }
         }
 
-        private void RefrescarListaDocentes()
+        internal void RefrescarListaDocentes()
         {
             dataGridViewAlumnos.ClearSelection();
             dataGridViewDocentes.DataSource = null;
@@ -211,16 +213,20 @@ namespace TPn2
 
         #endregion Carga de
 
-        /// <summary>
-        /// Botón para asignar alumno a curso
-        /// </summary>
-        ///
+   
+
+       
+        // Botón para asignar alumno a curso      
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
+            
+
             try
             {
+
                 Curso curso = (Curso)listBoxCursos.SelectedItem;
                 Alumno alumno = (Alumno)dataGridViewAlumnos.CurrentRow.DataBoundItem;
+                alumno.EventoValidar += Alumno_EventoValidar;
                 curso.ListaAlumnos.Add(alumno);
                 foreach (Alumno a in LAlumnos)
                 {
@@ -230,6 +236,8 @@ namespace TPn2
                         break;
                     }
                 }
+                alumno.EventoValidar -= Alumno_EventoValidar;
+
                 RefrescarListaAlumnos();
             }
             catch (Exception ex)
@@ -238,6 +246,18 @@ namespace TPn2
             }
             RefrescarListaAlumnos();
         }
+
+        private void Alumno_EventoValidar(Alumno a, AluArgumentos e)
+        {
+            if (a.Promedio<=4)
+            {
+                MessageBox.Show("Promedio menor a 4");
+            }
+        }
+
+
+
+
 
         //Boton Asigna docente a curso
         private void buttonAsignaDoc_Click(object sender, EventArgs e)
@@ -464,5 +484,7 @@ namespace TPn2
                 MessageBox.Show(ex.Message);
             }
         }
+
+
     }
 }
