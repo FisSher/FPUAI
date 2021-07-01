@@ -4,21 +4,11 @@ using TPn2.Eventos;
 
 namespace TPn2
 {
-    public class Alumno : Persona
+    public class Alumno : Persona, IComparable<Alumno>
     {
+        public event EventHandler<AluArgumentos> ChequeaPromedio;
 
-        //Delegado y ahora que hago con esto?
-        //TODO
-        public delegate void DelValidarNotaHandler(Alumno a, AluArgumentos e);
-
-        public event DelValidarNotaHandler EventoValidar;
-        
-        private static readonly Random random = new Random();
-
-        AluArgumentos e = new AluArgumentos();
-
-
-
+        private AluArgumentos argumento = new AluArgumentos();
 
         public double Promedio { get; set; }
 
@@ -26,6 +16,34 @@ namespace TPn2
         {
             return CodigoUnico + " " + Nombre + " " + Apellido + " " + Promedio;
         }
+
+        //No hace falta pasarle parámetros ya que el método está dentro de la misma clase
+        public double ValidaPromedio()
+        {
+            if (this.ChequeaPromedio != null && Promedio <= 4)
+            {
+                argumento.AlumnosBajoPromedio += 1;
+            }
+
+            ChequeaPromedio(this, argumento);
+
+            return argumento.AlumnosBajoPromedio;
+        }
+
+        public int CompareTo(Alumno other)
+        {
+            if (other == null)
+            {
+                return 1;
+            }
+            else
+            {
+                Alumno a = (Alumno)other;
+                return a.Promedio.CompareTo(Promedio);
+            }
+        }
+
+        private static readonly Random random = new Random();
 
         #region constructores
 

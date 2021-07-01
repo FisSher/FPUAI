@@ -31,7 +31,6 @@ namespace TPn2
         {
             this.dataGridViewPersonasEnCurso = new System.Windows.Forms.DataGridView();
             this.dataGridViewRendimientos = new System.Windows.Forms.DataGridView();
-            this.buttonMostrarOrdenado = new System.Windows.Forms.Button();
             this.labelTotCursos = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.labelTotPersonas = new System.Windows.Forms.Label();
@@ -44,6 +43,7 @@ namespace TPn2
             this.listBoxCursos = new System.Windows.Forms.ListBox();
             this.label1 = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
+            this.buttonMostrarOrdenado = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewPersonasEnCurso)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewRendimientos)).BeginInit();
             this.SuspendLayout();
@@ -63,16 +63,6 @@ namespace TPn2
             this.dataGridViewRendimientos.Name = "dataGridViewRendimientos";
             this.dataGridViewRendimientos.Size = new System.Drawing.Size(343, 93);
             this.dataGridViewRendimientos.TabIndex = 55;
-            // 
-            // buttonMostrarOrdenado
-            // 
-            this.buttonMostrarOrdenado.Location = new System.Drawing.Point(142, 275);
-            this.buttonMostrarOrdenado.Name = "buttonMostrarOrdenado";
-            this.buttonMostrarOrdenado.Size = new System.Drawing.Size(108, 25);
-            this.buttonMostrarOrdenado.TabIndex = 54;
-            this.buttonMostrarOrdenado.Text = "Mostrar";
-            this.buttonMostrarOrdenado.UseVisualStyleBackColor = true;
-            this.buttonMostrarOrdenado.Click += new System.EventHandler(this.buttonMejorRendimiento_Click);
             // 
             // labelTotCursos
             // 
@@ -124,9 +114,9 @@ namespace TPn2
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(12, 259);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(192, 13);
+            this.label10.Size = new System.Drawing.Size(353, 13);
             this.label10.TabIndex = 48;
-            this.label10.Text = "Listado ordenado por mejor rendimiento";
+            this.label10.Text = "Listado ordenado por mejor rendimiento (para docentes es la lista general)";
             // 
             // labelDocenteCurso
             // 
@@ -183,6 +173,16 @@ namespace TPn2
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // buttonMostrarOrdenado
+            // 
+            this.buttonMostrarOrdenado.Location = new System.Drawing.Point(142, 275);
+            this.buttonMostrarOrdenado.Name = "buttonMostrarOrdenado";
+            this.buttonMostrarOrdenado.Size = new System.Drawing.Size(108, 25);
+            this.buttonMostrarOrdenado.TabIndex = 54;
+            this.buttonMostrarOrdenado.Text = "Mostrar";
+            this.buttonMostrarOrdenado.UseVisualStyleBackColor = true;
+            this.buttonMostrarOrdenado.Click += new System.EventHandler(this.buttonMejorRendimiento_Click);
+            // 
             // Informes
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -217,7 +217,6 @@ namespace TPn2
 
         private System.Windows.Forms.DataGridView dataGridViewPersonasEnCurso;
         private System.Windows.Forms.DataGridView dataGridViewRendimientos;
-        private System.Windows.Forms.Button buttonMostrarOrdenado;
         private System.Windows.Forms.Label labelTotCursos;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label labelTotPersonas;
@@ -230,5 +229,6 @@ namespace TPn2
         private System.Windows.Forms.ListBox listBoxCursos;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button buttonMostrarOrdenado;
     }
 }

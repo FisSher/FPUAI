@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Windows.Forms;
 using TPn2.Clases;
-using TPn2.Eventos;
 using static TPn2.FormTP2;
 
 namespace TPn2
@@ -12,6 +11,9 @@ namespace TPn2
         {
             InitializeComponent();
         }
+
+        //DELEGADO
+        private delegate void Ordenar();
 
         private void Informes_Load(object sender, EventArgs e)
         {
@@ -61,8 +63,29 @@ namespace TPn2
 
         private void buttonMejorRendimiento_Click(object sender, EventArgs e)
         {
-        }
+            try
+            {
+                Curso curso = (Curso)listBoxCursos.SelectedItem;
 
-    
+                if (comboBoxRend.SelectedIndex == 0 && curso.ListaAlumnos != null)
+                {
+                    Ordenar ordenar = new Ordenar(curso.ListaAlumnos.Sort);
+                    ordenar.Invoke();
+                    dataGridViewRendimientos.DataSource = null;
+                    dataGridViewRendimientos.DataSource = curso.ListaAlumnos;
+                }
+                else if (LDocentes.Count > 0)
+                {
+                    Ordenar ordenar = new Ordenar(LDocentes.Sort);
+                    ordenar.Invoke();
+                    dataGridViewRendimientos.DataSource = null;
+                    dataGridViewRendimientos.DataSource = LDocentes;
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
+        }
     }
 }

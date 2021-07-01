@@ -58,6 +58,7 @@ namespace TPn2
             this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.buttonEliminarCurso = new System.Windows.Forms.Button();
+            this.labelBajoPromedio = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewAlumnos)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridViewDocentes)).BeginInit();
             this.SuspendLayout();
@@ -328,11 +329,21 @@ namespace TPn2
             this.buttonEliminarCurso.UseVisualStyleBackColor = true;
             this.buttonEliminarCurso.Click += new System.EventHandler(this.buttonEliminarCurso_Click);
             // 
+            // labelBajoPromedio
+            // 
+            this.labelBajoPromedio.AutoSize = true;
+            this.labelBajoPromedio.Location = new System.Drawing.Point(12, 294);
+            this.labelBajoPromedio.Name = "labelBajoPromedio";
+            this.labelBajoPromedio.Size = new System.Drawing.Size(10, 13);
+            this.labelBajoPromedio.TabIndex = 50;
+            this.labelBajoPromedio.Text = "-";
+            // 
             // FormTP2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(704, 482);
+            this.ClientSize = new System.Drawing.Size(655, 493);
+            this.Controls.Add(this.labelBajoPromedio);
             this.Controls.Add(this.buttonEliminarCurso);
             this.Controls.Add(this.radioButton2);
             this.Controls.Add(this.radioButton1);
@@ -404,5 +415,6 @@ namespace TPn2
         private System.Windows.Forms.RadioButton radioButton1;
         private System.Windows.Forms.RadioButton radioButton2;
         private System.Windows.Forms.Button buttonEliminarCurso;
+        private System.Windows.Forms.Label labelBajoPromedio;
     }
 }

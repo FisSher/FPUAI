@@ -16,7 +16,7 @@ namespace TPn2
         }
 
         #region Carga inicial
-
+        
         internal static List<Curso> LCursos = new List<Curso>();
         internal static List<Alumno> LAlumnos = new List<Alumno>();
         internal static List<Docente> LDocentes = new List<Docente>();
@@ -28,20 +28,25 @@ namespace TPn2
 
         private void FormTP2_Load(object sender, EventArgs e)
         {
-
             comboBoxTipo.DataSource = Enum.GetValues(typeof(TipoUsuarios));
             if (LDocentes.Count == 0)
             {
                 LDocentes.Add(new Docente("Virginia", "Carr", 10));
-                LDocentes.Add(new Docente("Esteban", "Pol", 10));
+                LDocentes.Add(new Docente("Esteban", "Pol", 3));
+                LDocentes.Add(new Docente("dsa", "asd", 5));
             }
             if (LCursos.Count == 0)
+            {
                 LCursos.Add(new Curso("K1503"));
+                LCursos.Add(new Curso("K1502"));
+                LCursos.Add(new Curso("K1501"));
+            }
 
             if (LAlumnos.Count == 0)
             {
                 LAlumnos.Add(new Alumno("Facundo", "Paolini", true));
                 LAlumnos.Add(new Alumno("Gaston", "Minion", true));
+                LAlumnos.Add(new Alumno("Darth", "fish", true));
             }
 
             RefrescarListaAlumnos();
@@ -213,21 +218,21 @@ namespace TPn2
 
         #endregion Carga de
 
-   
 
        
-        // Botón para asignar alumno a curso      
+
+        // Botón para asignar alumno a curso
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
-            
-
             try
             {
-
+                labelBajoPromedio.Text = "";
                 Curso curso = (Curso)listBoxCursos.SelectedItem;
                 Alumno alumno = (Alumno)dataGridViewAlumnos.CurrentRow.DataBoundItem;
-                alumno.EventoValidar += Alumno_EventoValidar;
                 curso.ListaAlumnos.Add(alumno);
+                alumno.ChequeaPromedio += Alumno_ChequeaPromedio;
+                alumno.ValidaPromedio();
+
                 foreach (Alumno a in LAlumnos)
                 {
                     if (a.CodigoUnico == alumno.CodigoUnico)
@@ -236,7 +241,8 @@ namespace TPn2
                         break;
                     }
                 }
-                alumno.EventoValidar -= Alumno_EventoValidar;
+                alumno.ChequeaPromedio -= Alumno_ChequeaPromedio;
+
 
                 RefrescarListaAlumnos();
             }
@@ -247,17 +253,15 @@ namespace TPn2
             RefrescarListaAlumnos();
         }
 
-        private void Alumno_EventoValidar(Alumno a, AluArgumentos e)
+        private void Alumno_ChequeaPromedio(object sender, AluArgumentos e)
         {
-            if (a.Promedio<=4)
+            if (e.AlumnosBajoPromedio>0)
             {
-                MessageBox.Show("Promedio menor a 4");
+                labelBajoPromedio.Text = "Se ha agregado un alumno de bajo promedio.";
             }
         }
 
-
-
-
+      
 
         //Boton Asigna docente a curso
         private void buttonAsignaDoc_Click(object sender, EventArgs e)
@@ -484,7 +488,5 @@ namespace TPn2
                 MessageBox.Show(ex.Message);
             }
         }
-
-
     }
 }
