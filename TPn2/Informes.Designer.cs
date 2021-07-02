@@ -31,7 +31,7 @@ namespace TPn2
         {
             this.dataGridViewPersonasEnCurso = new System.Windows.Forms.DataGridView();
             this.dataGridViewRendimientos = new System.Windows.Forms.DataGridView();
-            this.labelTotCursos = new System.Windows.Forms.Label();
+            this.labelPromCurso = new System.Windows.Forms.Label();
             this.label14 = new System.Windows.Forms.Label();
             this.labelTotPersonas = new System.Windows.Forms.Label();
             this.label12 = new System.Windows.Forms.Label();
@@ -64,23 +64,23 @@ namespace TPn2
             this.dataGridViewRendimientos.Size = new System.Drawing.Size(343, 93);
             this.dataGridViewRendimientos.TabIndex = 55;
             // 
-            // labelTotCursos
+            // labelPromCurso
             // 
-            this.labelTotCursos.AutoSize = true;
-            this.labelTotCursos.Location = new System.Drawing.Point(96, 212);
-            this.labelTotCursos.Name = "labelTotCursos";
-            this.labelTotCursos.Size = new System.Drawing.Size(10, 13);
-            this.labelTotCursos.TabIndex = 53;
-            this.labelTotCursos.Text = "-";
+            this.labelPromCurso.AutoSize = true;
+            this.labelPromCurso.Location = new System.Drawing.Point(96, 212);
+            this.labelPromCurso.Name = "labelPromCurso";
+            this.labelPromCurso.Size = new System.Drawing.Size(10, 13);
+            this.labelPromCurso.TabIndex = 53;
+            this.labelPromCurso.Text = "-";
             // 
             // label14
             // 
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(12, 212);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(65, 13);
+            this.label14.Size = new System.Drawing.Size(80, 13);
             this.label14.TabIndex = 52;
-            this.label14.Text = "Total cursos";
+            this.label14.Text = "Promedio curso";
             // 
             // labelTotPersonas
             // 
@@ -194,7 +194,7 @@ namespace TPn2
             this.Controls.Add(this.dataGridViewPersonasEnCurso);
             this.Controls.Add(this.dataGridViewRendimientos);
             this.Controls.Add(this.buttonMostrarOrdenado);
-            this.Controls.Add(this.labelTotCursos);
+            this.Controls.Add(this.labelPromCurso);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.labelTotPersonas);
             this.Controls.Add(this.label12);
@@ -217,7 +217,7 @@ namespace TPn2
 
         private System.Windows.Forms.DataGridView dataGridViewPersonasEnCurso;
         private System.Windows.Forms.DataGridView dataGridViewRendimientos;
-        private System.Windows.Forms.Label labelTotCursos;
+        private System.Windows.Forms.Label labelPromCurso;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.Label labelTotPersonas;
         private System.Windows.Forms.Label label12;

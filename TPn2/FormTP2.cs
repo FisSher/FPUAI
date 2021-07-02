@@ -16,7 +16,7 @@ namespace TPn2
         }
 
         #region Carga inicial
-        
+
         internal static List<Curso> LCursos = new List<Curso>();
         internal static List<Alumno> LAlumnos = new List<Alumno>();
         internal static List<Docente> LDocentes = new List<Docente>();
@@ -218,97 +218,106 @@ namespace TPn2
 
         #endregion Carga de
 
-
-       
-
         // Botón para asignar alumno a curso
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
-            try
+            if (listBoxCursos.SelectedIndex == -1)
             {
-                labelBajoPromedio.Text = "";
-                Curso curso = (Curso)listBoxCursos.SelectedItem;
-                Alumno alumno = (Alumno)dataGridViewAlumnos.CurrentRow.DataBoundItem;
-                curso.ListaAlumnos.Add(alumno);
-                alumno.ChequeaPromedio += Alumno_ChequeaPromedio;
-                alumno.ValidaPromedio();
-
-                foreach (Alumno a in LAlumnos)
+                MessageBox.Show("Seleccione un curso.");
+            }
+            else
+            {
+                try
                 {
-                    if (a.CodigoUnico == alumno.CodigoUnico)
+                    labelBajoPromedio.Text = "";
+                    Curso curso = (Curso)listBoxCursos.SelectedItem;
+                    Alumno alumno = (Alumno)dataGridViewAlumnos.CurrentRow.DataBoundItem;
+                    curso.ListaAlumnos.Add(alumno);
+                    alumno.ChequeaPromedio += Alumno_ChequeaPromedio;
+                    alumno.ValidaPromedio();
+
+                    foreach (Alumno a in LAlumnos)
                     {
-                        LAlumnos.Remove(alumno);
-                        break;
+                        if (a.CodigoUnico == alumno.CodigoUnico)
+                        {
+                            LAlumnos.Remove(alumno);
+                            break;
+                        }
                     }
+                    alumno.ChequeaPromedio -= Alumno_ChequeaPromedio;
+
+                    RefrescarListaAlumnos();
                 }
-                alumno.ChequeaPromedio -= Alumno_ChequeaPromedio;
-
-
+                catch (NullReferenceException) { }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
                 RefrescarListaAlumnos();
             }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
-            RefrescarListaAlumnos();
         }
 
         private void Alumno_ChequeaPromedio(object sender, AluArgumentos e)
         {
-            if (e.AlumnosBajoPromedio>0)
+            if (e.AlumnosBajoPromedio > 0)
             {
                 labelBajoPromedio.Text = "Se ha agregado un alumno de bajo promedio.";
             }
         }
 
-      
-
         //Boton Asigna docente a curso
         private void buttonAsignaDoc_Click(object sender, EventArgs e)
         {
+            if (listBoxCursos.SelectedIndex == -1)
+            {
+                MessageBox.Show("Seleccione un curso");
+            }
+            else
+            {
+                try
+                {
+                    Curso curso = (Curso)listBoxCursos.SelectedItem;
+                    if (curso.Docente == null)
+                    {
+                        Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
+                        curso.Docente = docente;
+                        foreach (Docente d in LDocentes)
+                        {
+                            if (d.CodigoUnico == docente.CodigoUnico)
+                            {
+                                LDocentes.Remove(docente);
+                                break;
+                            }
+                        }
+                    }
+                    else
+                    {
+                        //traigo el viejo y lo asigno a la lista general
+                        Curso cursoViejo = (Curso)listBoxCursos.SelectedItem;
+                        Docente docenteViejo = cursoViejo.Docente;
+                        LDocentes.Add(docenteViejo);
+
+                        //Saco de la lista general y lo llevo al curso
+                        Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
+                        curso.Docente = docente;
+                        foreach (Docente d in LDocentes)
+                        {
+                            if (d.CodigoUnico == docente.CodigoUnico)
+                            {
+                                LDocentes.Remove(docente);
+                                break;
+                            }
+                        }
+                    }
+
+                    RefrescarListaDocentes();
+                }
+                catch (Exception ex)
+                {
+                    MessageBox.Show(ex.Message);
+                }
+            }
             //Si el curso no tiene docente, lo asigna. Si ya tiene, lo intercambia.
-            try
-            {
-                Curso curso = (Curso)listBoxCursos.SelectedItem;
-                if (curso.Docente == null)
-                {
-                    Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
-                    curso.Docente = docente;
-                    foreach (Docente d in LDocentes)
-                    {
-                        if (d.CodigoUnico == docente.CodigoUnico)
-                        {
-                            LDocentes.Remove(docente);
-                            break;
-                        }
-                    }
-                }
-                else
-                {
-                    //traigo el viejo y lo asigno a la lista general
-                    Curso cursoViejo = (Curso)listBoxCursos.SelectedItem;
-                    Docente docenteViejo = cursoViejo.Docente;
-                    LDocentes.Add(docenteViejo);
-
-                    //Saco de la lista general y lo llevo al curso
-                    Docente docente = (Docente)dataGridViewDocentes.CurrentRow.DataBoundItem;
-                    curso.Docente = docente;
-                    foreach (Docente d in LDocentes)
-                    {
-                        if (d.CodigoUnico == docente.CodigoUnico)
-                        {
-                            LDocentes.Remove(docente);
-                            break;
-                        }
-                    }
-                }
-
-                RefrescarListaDocentes();
-            }
-            catch (Exception ex)
-            {
-                MessageBox.Show(ex.Message);
-            }
         }
 
         private void dataGridViewAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)

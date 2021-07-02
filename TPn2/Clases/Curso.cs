@@ -49,27 +49,5 @@ namespace TPn2.Clases
                 return 0;
         }
 
-        //Aplico interfaz integrada (creo que no tengo idea de que estoy haciendo acá a las 4:32 am que hice esto)
-        public class OrdenarPorPromedio : IComparer<Alumno>
-        {
-            public int Compare(Alumno x, Alumno y)
-            {
-                if (x == null || y == null)
-                    throw new ArgumentNullException();
-                else
-                    return x.Promedio.CompareTo(y.Promedio);
-            }
-        }
-
-        public class OrdenarPorNombre : IComparer<Alumno>
-        {
-            public int Compare(Alumno x, Alumno y)
-            {
-                if (x == null && y == null)
-                    throw new ArgumentNullException();
-                else
-                    return string.Compare(x.Nombre, y.Nombre);
-            }
-        }
     }
 }

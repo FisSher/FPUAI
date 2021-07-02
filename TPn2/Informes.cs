@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Windows.Forms;
 using TPn2.Clases;
+using TPn2.Interfaces;
 using static TPn2.FormTP2;
 
 namespace TPn2
@@ -59,6 +60,23 @@ namespace TPn2
             Curso curso = (Curso)listBoxCursos.SelectedItem;
             dataGridViewPersonasEnCurso.DataSource = null;
             dataGridViewPersonasEnCurso.DataSource = curso.ListaAlumnos;
+            if (curso.Docente!=null)
+            {
+                labelDocenteCurso.Text = curso.Docente.Nombre + " " + curso.Docente.Apellido;
+            }
+            if (curso.ListaAlumnos.Count>0)
+            {
+                IPromediable ipromediable = curso;
+                double promedio = ipromediable.CalcularPromedio(curso.ListaAlumnos);
+                labelPromCurso.Text = promedio.ToString();
+            }
+            if (curso.ListaAlumnos.Count>0)
+            {
+                labelTotPersonas.Text = curso.ListaAlumnos.Count.ToString();
+            }
+            
+
+
         }
 
         private void buttonMejorRendimiento_Click(object sender, EventArgs e)
