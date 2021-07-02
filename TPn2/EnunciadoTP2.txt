@@ -1,10 +1,14 @@
 Se quiere hacer un listado de alumnos, uno de docentes y uno de cursos.
+Se debe poder asignar de una lista de alumnos a un curso y otra de docentes.
 
 Los alumnos tendrán un nombre, apellido, su promedio y un código único generado por su nombre y apellido + numero al azar.
 Los docentes tendrán lo mismo excepto que en vez de promedio será una nota de desempeño.
 
-Sólo 1 curso por docente y 1 docente por curso. Se solicita no tener código de curso repetido.
+Sólo 1 docente por curso, la lista de alumnos será contenida en el curso. 
 
-Se solicita que se se informen para alumnos y docentes por separado, los de mejor promedio.
+Se solicita no tener código de curso repetido.
+
+Se solicita que se se informen para alumnos y docentes, por separado, los de mejor promedio. 
+Como el docente de el curso es 1 solo, se tomará como referencia el listado general de los docentes que todavía estén
 
 Informar los integrantes de un curso en una lista y el docente a cargo como título.

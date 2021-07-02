@@ -21,7 +21,7 @@ namespace TPn2
             else
             {
                 Docente a = (Docente)other;
-                return Desempenio.CompareTo(a.Desempenio);
+                return a.Desempenio.CompareTo(Desempenio);
             }
         }
 
