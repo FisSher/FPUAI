@@ -8,9 +8,6 @@ namespace OtroNamespace
         private string _codigoUnico;
         public string Nombre { get; set; }
         public string Apellido { get; set; }
-
-        public Curso curso { get; set; }
-
         public string CodigoUnico
         {
             get { return _codigoUnico; }

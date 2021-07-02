@@ -323,13 +323,11 @@ namespace TPn2
         private void dataGridViewAlumnos_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridViewDocentes.ClearSelection();
-            dataGridViewDocentes.CurrentCell.Selected = false;
         }
 
         private void dataGridViewDocentes_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
             dataGridViewAlumnos.ClearSelection();
-            dataGridViewAlumnos.CurrentCell.Selected = false;
         }
 
         //El botón modifica promedio, desempeño
