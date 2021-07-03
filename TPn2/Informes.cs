@@ -46,13 +46,29 @@ namespace TPn2
                         break;
                     }
                 }
+                if (curso.ListaAlumnos.Count > 0)
+                {
+                    IPromediable ipromediable = curso;
+                    double promedio = ipromediable.CalcularPromedio(curso.ListaAlumnos);
+                    promedio = Math.Round(promedio, 2);
+                    labelPromCurso.Text = promedio.ToString();
+                }
+                else
+                {
+                    labelPromCurso.Text = "0";
+
+                }
+                labelTotPersonas.Text = curso.ListaAlumnos.Count.ToString();
+
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
 
+
             RefrescarListaAlumnosEnCurso();
+
         }
 
         private void listBoxCursos_SelectedIndexChanged(object sender, EventArgs e)
@@ -68,6 +84,7 @@ namespace TPn2
             {
                 IPromediable ipromediable = curso;
                 double promedio = ipromediable.CalcularPromedio(curso.ListaAlumnos);
+                promedio = Math.Round(promedio, 2);
                 labelPromCurso.Text = promedio.ToString();
             }
             if (curso.ListaAlumnos.Count>0)

@@ -219,11 +219,12 @@ namespace TPn2
         #endregion Carga de
 
         // Botón para asignar alumno a curso
+        //El visual por defecto frena en un nullreference por mas que haya un catch. 
         private void buttonAsignaCurso_Click(object sender, EventArgs e)
         {
             if (listBoxCursos.SelectedIndex == -1)
             {
-                MessageBox.Show("Seleccione un curso.");
+                MessageBox.Show("Seleccione un curso o alumno");
             }
             else
             {
@@ -248,7 +249,10 @@ namespace TPn2
 
                     RefrescarListaAlumnos();
                 }
-                catch (NullReferenceException) { }
+                catch (NullReferenceException )
+                {
+                    MessageBox.Show("Seleccione un alumno.");
+                }
                 catch (Exception ex)
                 {
                     MessageBox.Show(ex.Message);
@@ -311,6 +315,10 @@ namespace TPn2
                     }
 
                     RefrescarListaDocentes();
+                }
+                catch (NullReferenceException)
+                {
+                    MessageBox.Show("Seleccione un docente");
                 }
                 catch (Exception ex)
                 {
